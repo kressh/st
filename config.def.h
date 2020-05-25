@@ -69,6 +69,14 @@ static unsigned int cursorthickness = 2;
  */
 static int bellvolume = 0;
 
+/* visual-bell timeout in ms (0 to disable visual-bell) */
+static int vbelltimeout = 150;
+
+/* choose predefined visual-bell cells to inverse, or define your own logic */
+#define VBCELL x==0 || x==right || y==0 || y==bottom  /* border */
+// #define VBCELL 1  /* all cells - whole screen */
+// #define VBCELL y==bottom && x>right-2  /* bottom-right */
+
 /* default TERM value */
 char *termname = "st-256color";
 
@@ -195,6 +203,8 @@ static Shortcut shortcuts[] = {
 	{ TERMMOD,              XK_Y,           selpaste,       {.i =  0} },
 	{ ShiftMask,            XK_Insert,      selpaste,       {.i =  0} },
 	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
+	{ ShiftMask,            XK_Page_Up,     kscrollup,      {.i = -1} },
+	{ ShiftMask,            XK_Page_Down,   kscrolldown,    {.i = -1} },
 };
 
 /*
