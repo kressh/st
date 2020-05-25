@@ -97,6 +97,10 @@ char *termname = "xterm-256color";
  */
 unsigned int tabspaces = 8;
 
+/* bg opacity */
+float alpha = 1.0;           //< alpha value used when the window is ocused.
+float alphaUnfocussed = 0.8; //< alpha value used when the focus is lost
+
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
 	/* 8 normal colors */
